@@ -94,6 +94,7 @@ zookeeper-server-start.bat ../../config/zookeeper.properties
 call bin/windows/zookeeper-server-start.bat config/zookeeper.properties
 #### **1.2.1.4启动Kafka**
 Ø 进入Kafka解压缩文件夹的config目录，修改server.properties配置文件
+```
 # Listener name, hostname and port the broker will advertise to clients.
 # If not set, it uses the value for "listeners".
 # 客户端访问Kafka服务器时，默认连接的服务为本机的端口**9092**，如果想要改变，可以修改如下配置
@@ -103,19 +104,20 @@ call bin/windows/zookeeper-server-start.bat config/zookeeper.properties
 # A comma separated list of directories under which to store log files
 # 配置Kafka数据的存放位置，如果文件目录不存在，会自动生成。
 log.dirs=E:/kafka_2.12-3.6.1/data/kafka
+```
 Ø 打开DOS窗口，进入e:/kafka_2.12-3.6.1/bin/windows目录
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083290666-80475978-4de0-43a8-bf64-820bf05f5c14.png#averageHue=%230d0d0c&clientId=u5c670a42-517b-4&from=paste&height=95&id=u62abbdd3&originHeight=95&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21559&status=done&style=none&taskId=u26c8259d-7bb1-435d-b55f-84af0e64ab7&title=&width=1280)
+![alt text](assets/image-8.png)
 Ø 调用启动指令，传递配置文件的路径
 # 因为当前目录为windows，所以需要通过相对路径找到kafka的配置文件。
 kafka-server-start.bat ../../config/server.properties
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083302992-46def9d9-581a-4b96-a535-042a64009cc2.png#averageHue=%230e0e0d&clientId=u5c670a42-517b-4&from=paste&height=99&id=ubb601151&originHeight=99&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=33263&status=done&style=none&taskId=u43d73588-cf88-49a3-9811-2ed79677634&title=&width=1280)
+![alt text](assets/image-9.png)
 Ø 出现如下界面，Kafka启动成功。
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083319884-bf2639ed-5dde-402e-96df-3c410ad363f5.png#averageHue=%23181513&clientId=u5c670a42-517b-4&from=paste&height=640&id=uc686f1d7&originHeight=640&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=432590&status=done&style=none&taskId=ue96834b8-2f68-46e7-a566-79a339b9699&title=&width=1280)
+![alt text](assets/image-10.png)
 Ø 为了操作方便，也可以在kafka解压缩后的目录中，创建脚本文件kfk.cmd。
 # 调用启动命令，且同时指定配置文件。
 call bin/windows/kafka-server-start.bat config/server.properties
 Ø DOS窗口中，输入jps指令，查看当前启动的软件进程
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083329945-f5f7c9be-4326-4a3c-9a85-5f725681cbc0.png#averageHue=%230d0d0c&clientId=u5c670a42-517b-4&from=paste&height=154&id=ufc4e5b20&originHeight=154&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=28560&status=done&style=none&taskId=u89ebacf9-b5ab-4fe6-90fd-e937a8c2db0&title=&width=1280)
+![alt text](assets/image-11.png)
 这里名称为QuorumPeerMain的就是ZooKeeper软件进程，名称为Kafka的就是Kafka系统进程。此时，说明Kafka已经可以正常使用了。
 ### **1.2.2  消息主题**
 在消息发布/订阅（Publish/Subscribe）模型中，为了可以让消费者对感兴趣的消息进行消费，而不是对所有的数据进行消费，包括那些不感兴趣的消息，所以定义了主题（Topic）的概念，也就是说将不同的消息进行分类，分成不同的主题（Topic），然后消息生产者在生成消息时，就会向指定的主题（Topic）中发送。而消息消费者也可以订阅自己感兴趣的主题（Topic）并从中获取消息。
@@ -123,7 +125,7 @@ call bin/windows/kafka-server-start.bat config/server.properties
 #### **1.2.2.1创建主题**
 Ø 启动ZooKeeper，Kafka服务进程（略）
 Ø 打开DOS窗口，进入e:/kafka_2.12-3.6.1/bin/windows目录
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083344327-f31c0944-22fe-44da-a5e4-e80b847c1047.png#averageHue=%230d0d0c&clientId=u5c670a42-517b-4&from=paste&height=95&id=u4d427b0a&originHeight=95&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21559&status=done&style=none&taskId=u39cef020-8cf7-400e-bfae-bab9a38ec58&title=&width=1280)
+![alt text](assets/image-12.png)
 Ø DOS窗口输入指令，创建主题
 # Kafka是通过**kafka-topics.bat**指令文件进行消息主题操作的。其中包含了对主题的查询，创建，删除等功能。
 # 调用指令创建主题时，需要传递多个参数，而且参数的前缀为两个横线。因为参数比较多，为了演示方便，这里我们只说明必须传递的参数，其他参数后面课程中会进行讲解
@@ -132,7 +134,7 @@ call bin/windows/kafka-server-start.bat config/server.properties
 # **--topic** : 主题的名称，后面接的参数值一般就是见名知意的字符串名称，类似于java中的字符串类型标识符名称，当然也可以使用数字，只不过最后还是当成数字字符串使用。
 # 指令
 kafka-topics.bat --bootstrap-server localhost:9092 --create --topic test
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083356327-ca89dd48-cce3-420b-aed2-d1f43ea6cd5c.png#averageHue=%23100f0e&clientId=u5c670a42-517b-4&from=paste&height=95&id=u959f480e&originHeight=95&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=41129&status=done&style=none&taskId=uab32ccab-dc4f-41d0-a7ba-8b6bb337df7&title=&width=1280)
+![alt text](assets/image-13.png)
 #### **1.2.2.2查询主题**
 Ø DOS窗口输入指令，查看所有主题
 # Kafka是通过**kafka-topics.bat**文件进行消息主题操作的。其中包含了对主题的查询，创建，删除等功能。
