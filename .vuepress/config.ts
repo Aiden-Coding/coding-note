@@ -38,12 +38,14 @@ export default defineUserConfig({
           children: ["Kafka教程"],
         },
       ],
+      "/docs/mysql/": ["安装", "事务", "事务的实现", "MySQL和Redis的数据一致性"],
     },
     navbar: [
       { text: "Home", link: "/" },
       // { text: "Categories", link: "/categories/reco/1/" },
       // { text: "Tags", link: "/tags/tag1/1/" },
       { text: "kafka", link: "/docs/kafka/Kafka教程" },
+      { text: "mysql", link: "/docs/mysql/安装" },
       // {
       //   text: "Docs",
       //   children: [
