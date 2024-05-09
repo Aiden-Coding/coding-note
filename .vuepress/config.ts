@@ -80,6 +80,7 @@ export default defineUserConfig({
       { text: "java", link: "/docs/java/jvm/垃圾回收机制" },
       { text: "kafka", link: "/docs/kafka/Kafka教程" },
       { text: "mysql", link: "/docs/mysql/安装" },
+      { text: "github", link: "https://github.com/Aiden-Coding/coding-note.git" },
       // {
       //   text: "Docs",
       //   children: [
