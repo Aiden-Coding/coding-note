@@ -44,9 +44,9 @@ export default defineUserConfig({
         {
           text: "jvm",
           children: [
+            "jvm/JVM",
             "jvm/Java程序编译",
             "jvm/Java代码运行流程",
-            "jvm/JVM",
             "jvm/内存数据区",
             "jvm/栈虚拟机和寄存器",
             "jvm/栈帧结构",
