@@ -46,8 +46,7 @@ jobs:
           target_branch: github-pages
           # 部署目录为 VuePress 的默认输出目录
           build_dir: .vuepress/dist
-        # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
-        permissions:
-          pages: write # to deploy to Pages
-          id-token: write # to verify the deployment originates from an appropriate source
-
+        
+        env:
+          # @see https://docs.github.com/cn/actions/reference/authentication-in-a-workflow#about-the-github_token-secret
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
