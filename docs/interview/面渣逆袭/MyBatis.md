@@ -5,11 +5,11 @@ title: MyBatis
 #   - 面渣逆袭
 # tag:
 #   - 面渣逆袭
-description: MyBatis面试题，20道MyBatis八股文（6千字30张手绘图），面渣逆袭必看👍
-head:
-  - - meta
-    - name: keywords
-      content: MyBatis面试题,MyBatis,面试题,八股文
+# description: MyBatis面试题，20道MyBatis八股文（6千字30张手绘图），面渣逆袭必看👍
+# head:
+#   - - meta
+#     - name: keywords
+#       content: MyBatis面试题,MyBatis,面试题,八股文
 ---
 
 ## 基础

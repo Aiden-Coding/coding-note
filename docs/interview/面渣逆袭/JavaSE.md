@@ -1,16 +1,16 @@
 ---
 title: JavaSE
-shortTitle: 面渣逆袭-Java SE
+# shortTitle: 面渣逆袭-Java SE
 # author: 三分恶
 # categories:
 #   - 面渣逆袭
 # tags:
 #   - 面渣逆袭
-description: Java面试题之Java基础篇，53道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
-head:
-  - - meta
-    - name: keywords
-      content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
+# description: Java面试题之Java基础篇，53道Java基础八股文（1.3万字44张手绘图），面渣逆袭必看👍
+# head:
+#   - - meta
+#     - name: keywords
+#       content: Java,Java SE,面试题,Java基础面试题,Java面试题,八股文,java,面试,java面试
 ---
 
 ## Java 概述

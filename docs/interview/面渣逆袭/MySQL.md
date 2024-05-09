@@ -1,15 +1,15 @@
 ---
 title: MySQL
-description: MySQL面试题，66道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
+# description: MySQL面试题，66道MySQL八股文（1.8万字69张手绘图），面渣逆袭必看👍
 # author: 三分恶
 # category:
 #   - 面渣逆袭
 # tag:
 #   - 面渣逆袭
-head:
-  - - meta
-    - name: keywords
-      content: MySQL面试题,MySQL,mysql,面试题,八股文
+# head:
+#   - - meta
+#     - name: keywords
+#       content: MySQL面试题,MySQL,mysql,面试题,八股文
 ---
 
 ## 基础

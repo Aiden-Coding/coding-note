@@ -1,16 +1,16 @@
 ---
 title: Redis
-shortTitle: 
-description: Redis面试题，53道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
-author: 三分恶
-category:
-  - 面渣逆袭
-tag:
-  - 面渣逆袭
-head:
-  - - meta
-    - name: keywords
-      content: Redis面试题,Redis,八股文,面试题
+# shortTitle: 
+# description: Redis面试题，53道Redis八股文（1.9万字97张手绘图），面渣逆袭必看👍
+# author: 三分恶
+# category:
+#   - 面渣逆袭
+# tag:
+#   - 面渣逆袭
+# head:
+#   - - meta
+#     - name: keywords
+#       content: Redis面试题,Redis,八股文,面试题
 ---
 
 1.9 万字 97 张手绘图，详解 53 道 Redis 面试高频题（让天下没有难背的八股），面渣背会这些 Redis 八股文，这次吊打面试官，我觉得稳了（手动 dog）。整理：沉默王二，戳[转载链接](https://mp.weixin.qq.com/s/19u34NXALB1nOlBCE6Eg-Q)，作者：三分恶，戳[原文链接](https://mp.weixin.qq.com/s/iJtNJYgirRugNBnzxkbB4Q)。
