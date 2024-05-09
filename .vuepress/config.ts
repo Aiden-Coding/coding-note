@@ -38,7 +38,7 @@ export default defineUserConfig({
           children: ["Kafka教程"],
         },
       ],
-      "/docs/mysql/": ["安装", "事务", "事务的实现", "MySQL和Redis的数据一致性"],
+      "/docs/mysql/": ["MySQL学习路线", "安装", "事务", "事务的实现", "MySQL和Redis的数据一致性"],
 
       "/docs/java/": [
         {

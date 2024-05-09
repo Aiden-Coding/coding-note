@@ -1,16 +1,16 @@
 ---
-star: true
-title: MySQL学习路线（建议收藏🔥）
-shortTitle: MySQL学习路线
-category:
-  - 学习路线
-tag:
-  - 学习路线
-description: MySQL学习资料 | 学习路线 | 注意事项，MySQL需要学什么
-head:
-  - - meta
-    - name: keywords
-      content: MySQL,学习路线,mysql教程,mysql面试
+# star: true
+title: MySQL学习路线
+# shortTitle: MySQL学习路线
+# category:
+#   - 学习路线
+# tag:
+#   - 学习路线
+# description: MySQL学习资料 | 学习路线 | 注意事项，MySQL需要学什么
+# head:
+#   - - meta
+#     - name: keywords
+#       content: MySQL,学习路线,mysql教程,mysql面试
 ---
 
 
