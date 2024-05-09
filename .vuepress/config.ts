@@ -62,7 +62,7 @@ export default defineUserConfig({
             "jvm/字节码指令执行流程",
             "jvm/类文件结构",
             "jvm/类加载机制",
-            "jvm/CPU100%排查",
+            "jvm/CPU100排查",
             "jvm/内存溢出",
             "jvm/CMS-GC问题分析",
             "jvm/问题诊断和排查工具",
