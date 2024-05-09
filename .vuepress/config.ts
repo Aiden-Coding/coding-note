@@ -72,9 +72,30 @@ export default defineUserConfig({
           ],
         },
       ],
+
+      "/docs/interview/": [
+        {
+          text: "面渣逆袭",
+          children: [
+            "面渣逆袭/JVM",
+            "面渣逆袭/JavaSE",
+            "面渣逆袭/集合",
+            "面渣逆袭/并发编程",
+            "面渣逆袭/Spring",
+            "面渣逆袭/MyBatis",
+            "面渣逆袭/MySQL",
+            "面渣逆袭/Redis",
+            "面渣逆袭/RocketMQ",
+            "面渣逆袭/操作系统",
+            "面渣逆袭/分布式",
+            "面渣逆袭/计算机网络",
+            "面渣逆袭/微服务",
+          ],
+        },
+      ],
     },
     navbar: [
-      { text: "Home", link: "/" },
+      { text: "面试", link: "/docs/interview/面渣逆袭/" },
       // { text: "Categories", link: "/categories/reco/1/" },
       // { text: "Tags", link: "/tags/tag1/1/" },
       { text: "java", link: "/docs/java/jvm/垃圾回收机制" },
