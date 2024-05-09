@@ -34,6 +34,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     needs: build
+
     # Grant GITHUB_TOKEN the permissions required to make a Pages deployment
     permissions:
       pages: write # to deploy to Pages
@@ -41,7 +42,7 @@ jobs:
 
     # Deploy to the github-pages environment
     environment:
-      name: page
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
 
     runs-on: ubuntu-latest
