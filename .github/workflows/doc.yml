@@ -19,11 +19,12 @@ jobs:
         with:
           node-version: 18.16.0
           path: npm
-
+      - name: Install pnpm
+        run: npm install pnpm -g
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
       - name: Build website
-        run: npm run build
+        run: pnpm run build
 
       - name: Upload Build Artifact
         uses: actions/upload-pages-artifact@v3
