@@ -61,9 +61,9 @@ Kafka的绝大数代码都是Scala语言编写的，而Scala语言本身就是�
 l 这里的3.6.1，是Kafka软件的版本。截至到2023年12月24日，Kafka最新版本为3.6.1。
 l 2.12是对应的Scala开发语言版本。Scala2.12和Java8是兼容的，所以可以直接使用。
 l tgz是一种linux系统中常见的压缩文件格式，类似与windows系统的zip和rar格式。所以Windows环境中可以直接使用压缩工具进行解压缩。
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083109138-831c9bf5-de88-41fa-9d20-6beaa7e485f5.png#averageHue=%23fcfbfb&clientId=u5c670a42-517b-4&from=paste&height=567&id=ubbd11053&originHeight=567&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=143137&status=done&style=none&taskId=u81975d19-4aaf-4b75-89fd-1fb40a06af1&title=&width=1280)
+![alt text](assets/image-3.png)
 **Ø 解压文件**：kafka_2.12-3.6.1.tgz，解压目录为非系统盘的根目录，比如e:/
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083123976-15f403eb-ba5b-4f7c-8e44-a8f8c9bb5ece.png#averageHue=%23fcfbf9&clientId=u5c670a42-517b-4&from=paste&height=71&id=uf11a9192&originHeight=71&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=24939&status=done&style=none&taskId=u5e2f92f9-2752-4949-a9f1-8f1346ec0b3&title=&width=1280)
+![alt text](assets/image-4.png)
 为了访问方便，可以将解压后的文件目录改为kafka， 更改后的文件目录结构如下：
 
 | bin | linux系统下可执行脚本文件 |
@@ -82,13 +82,13 @@ l tgz是一种linux系统中常见的压缩文件格式，类似与windows系统
 # 修改dataDir配置，用于设置ZooKeeper数据存储位置，该路径如果不存在会自动创建。
 dataDir=E:/kafka_2.12-3.6.1/data/zk
 Ø 打开DOS窗口，进入e:/kafka_2.12-3.6.1/bin/windows目录
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083163308-bf1a8bec-e9e0-43e3-9774-004bf88a4407.png#averageHue=%230d0d0c&clientId=u5c670a42-517b-4&from=paste&height=95&id=u4f0ed8db&originHeight=95&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=21559&status=done&style=none&taskId=u1d3253fc-8d22-4e23-8501-5b5873e70c6&title=&width=1280)
+![alt text](assets/image-5.png)
 Ø 因为本章节演示的是Windows环境下Kafka软件的安装和使用，所以启动 ZooKeeper软件的指令为Windows环境下的bat批处理文件。调用启动指令时， 需要传递配置文件的路径
 # 因为当前目录为windows，所以需要通过相对路径找到zookeeper的配置文件。
 zookeeper-server-start.bat ../../config/zookeeper.properties
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083179427-98073696-961e-40f2-b1c6-1b3e1b0ea1bb.png#averageHue=%230f0e0d&clientId=u5c670a42-517b-4&from=paste&height=93&id=u0ef77733&originHeight=93&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=35403&status=done&style=none&taskId=ufa17ea72-34d6-4c9b-82df-22b290df525&title=&width=1280)
+![alt text](assets/image-6.png)
 Ø 出现如下界面，ZooKeeper启动成功。
-![image.png](https://cdn.nlark.com/yuque/0/2024/png/1289642/1715083191310-f834f36a-4ab1-491b-bd8c-8e6f11f0fc33.png#averageHue=%23171512&clientId=u5c670a42-517b-4&from=paste&height=640&id=ufc210d87&originHeight=640&originWidth=1280&originalType=binary&ratio=1&rotation=0&showTitle=false&size=408199&status=done&style=none&taskId=uf6a505ea-b1b3-4b31-bdc0-af6790602c9&title=&width=1280)
+![alt text](assets/image-7.png)
 Ø 为了操作方便，也可以在kafka解压缩后的目录中，创建脚本文件zk.cmd。
 # 调用启动命令，且同时指定配置文件。
 call bin/windows/zookeeper-server-start.bat config/zookeeper.properties
