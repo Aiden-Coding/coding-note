@@ -41,6 +41,7 @@ export default defineUserConfig({
       { text: "Home", link: "/" },
       { text: "Categories", link: "/categories/reco/1/" },
       { text: "Tags", link: "/tags/tag1/1/" },
+      { text: "kafka", link: "/docs/kafka/Kafka教程" },
       {
         text: "Docs",
         children: [
