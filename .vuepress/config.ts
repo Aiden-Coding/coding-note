@@ -10,6 +10,8 @@ export default defineUserConfig({
   bundler: viteBundler(),
   // bundler: webpackBundler(),
   theme: recoTheme({
+    // 自动设置分类
+    autoSetBlogCategories: true,
     style: "@vuepress-reco/style-default",
     logo: "/logo.png",
     author: "小董",
@@ -20,16 +22,16 @@ export default defineUserConfig({
     lastUpdatedText: "",
     // series 为原 sidebar
     series: {
-      "/docs/theme-reco/": [
-        {
-          text: "module one",
-          children: ["home", "theme"],
-        },
-        {
-          text: "module two",
-          children: ["api", "plugin"],
-        },
-      ],
+      // "/docs/theme-reco/": [
+      //   {
+      //     text: "module one",
+      //     children: ["home", "theme"],
+      //   },
+      //   {
+      //     text: "module two",
+      //     children: ["api", "plugin"],
+      //   },
+      // ],
       "/docs/kafka/": [
         {
           text: "Kafka教程",
