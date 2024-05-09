@@ -2605,9 +2605,11 @@ mv jdk1.8.0_212/ java
 (1) 新建 /etc/profile.d/my_env.sh文件
 vim /etc/profile.d/my_env.sh
 (2) 添加内容
+```
 #JAVA_HOME
 export JAVA_HOME=/opt/module/java
 export PATH=$PATH:$JAVA_HOME/bin
+```
 (3) 让环境变量生效
 source /etc/profile.d/my_env.sh
 #### **3.10.3.5安装测试**
@@ -2624,7 +2626,7 @@ xsync java
 ### **3.10.4 安装ZooKeeper**
 #### **3.10.4.1上传ZooKeeper压缩包**
 将apache-zookeeper-3.7.1-bin.tar.gz文件上传到三台虚拟机的/opt/software目录中
-
+![alt text](assets/image-43.png)
 #### **3.10.4.2解压ZooKeeper压缩包**
 # 进入到/opt/software目录中
 cd /opt/software/
@@ -2656,6 +2658,7 @@ mv zoo_sample.cfg zoo.cfg
 # 修改文件内容
 vim zoo.cfg
 (2) 修改zoo.cfg文件
+```
 **# 以下内容为修改内容**
 dataDir=/opt/module/zookeeper/zkData
 
@@ -2671,6 +2674,7 @@ dataDir=/opt/module/zookeeper/zkData
 server.1=kafka-broker1:2888:3888
 server.2=kafka-broker2:2888:3888
 server.3=kafka-broker3:2888:3888
+```
 #### **3.10.4.5启动ZooKeeper**
 **# 在每个节点下执行如下操作**
 # 进入zookeeper目录
@@ -2710,6 +2714,7 @@ cd /root/bin
 # 创建zk.sh脚本文件
 vim zk.sh
 在脚本中增加内容:
+```
 #!/bin/bash
 
 case $1 in
@@ -2735,6 +2740,7 @@ ssh $i "/opt/module/zookeeper/bin/zkServer.sh status"
 done
 };;
 esac
+```
 (6) 增加脚本文件权限
 # 给zk.sh文件授权
 chmod 777 zk.sh
@@ -2749,15 +2755,15 @@ zk.sh stop
 我们可以通过ZooKeeper软件自带命令行客户端对保存的信息进行访问，也可以采用一些工具软件进行访问，这里我们给大家介绍一个ZooKeeper的客户端工具prettyZoo。
 (1) 软件安装
 安装的过程非常简单，直接点击课程资料中的prettyZoo-win.msi安装包默认安装即可。
-
+![alt text](assets/image-42.png)
 (2) 连接ZooKeeper
-
+![alt text](assets/image-41.png)
 (3) 查看ZooKeeper节点信息
-
+![alt text](assets/image-40.png)
 ### **3.10.5 安装Kafka**
 #### **3.10.5.1上传Kafka压缩包**
 将kafka_2.12-3.6.1.tgz文件上传到三台虚拟机的/opt/software目录中
-
+![alt text](assets/image-39.png)
 #### **3.10.5.2解压Kafka压缩包**
 # 进入/opt/software目录
 cd /opt/software
@@ -2778,7 +2784,7 @@ vim server.properties
 输入以下内容：
 #broker的全局唯一编号，每个服务节点不能重复，只能是数字。
 **broker.id=1**
-
+```
 #broker对外暴露的IP和端口 （每个节点单独配置）
 advertised.listeners=PLAINTEXT://**kafka-broker1**:9092
 #处理网络请求的线程数量
@@ -2805,6 +2811,7 @@ log.retention.hours=168
 log.segment.bytes=1073741824
 # 检查过期数据的时间，默认5分钟检查一次是否数据过期
 log.retention.check.interval.ms=300000
+```
 #配置连接Zookeeper集群地址（在zk根目录下创建/kafka，方便管理）
 **zookeeper.connect=kafka-broker1:2181,kafka-broker2:2181,kafka-broker3:2181/kafka**
 #### **3.10.5.4分发kafka软件**
@@ -2820,9 +2827,11 @@ vim /opt/module/kafka/config/server.properties
 (1) 修改 /etc/profile.d/my_env.sh文件
 vim /etc/profile.d/my_env.sh
 (2) 添加内容
+```
 #KAFKA_HOME
 export KAFKA_HOME=/opt/module/kafka
 export PATH=$PATH:$KAFKA_HOME/bin
+```
 (3) 让环境变量生效
 source /etc/profile.d/my_env.sh
 (4) 分发环境变量，并让环境变量生效
@@ -2848,6 +2857,7 @@ cd /root/bin
 # 创建kfk.sh脚本文件
 vim kfk.sh
 在脚本中增加内容:
+```
 #! /bin/bash
 
 case $1 in
@@ -2866,6 +2876,7 @@ ssh $i "/opt/module/kafka/bin/kafka-server-stop.sh "
 done
 };;
 esac
+```
 (2) 增加脚本文件权限
 # 给文件授权
 chmod 777 kfk.sh
@@ -2883,6 +2894,7 @@ cd /root/bin
 # 创建xcall文件
 vim xcall
 在脚本中增加内容:
+```
 #! /bin/bash
 
 for i in kafka-broker1 kafka-broker2 kafka-broker3
@@ -2890,6 +2902,7 @@ do
 echo --------- $i ----------
 ssh $i "$*"
 done
+```
 b. 增加脚本文件权限
 # 进入/root/bin目录
 cd /root/bin
@@ -2903,6 +2916,7 @@ cd /root/bin
 # 创建cluster.sh脚本文件
 vim cluster.sh
 在脚本中增加内容:
+```
 #!/bin/bash
 
 case $1 in
@@ -2935,6 +2949,7 @@ done
 zk.sh stop
 };;
 esac
+```
 d. 增加脚本文件权限
 # 进入/root/bin目录
 cd /root/bin
@@ -2951,23 +2966,23 @@ cluster.sh stop
 因为已经将ZooKeeper和Kafka的启动封装为脚本，所以可以分别调用脚本启动或调用集群脚本启动
 # 启动集群
 cluster.sh start
-
+![alt text](assets/image-38.png)
 输入指令查看进程
 # xcall 后面跟着linux指令操作，可以同时对多个服务器节点同时执行相同指令
 xcall jps
-
+![alt text](assets/image-37.png)
 #### **3.10.6.2查看Kafka状态**
 使用客户端工具访问kafka
-
-
+![alt text](assets/image-36.png)
+![alt text](assets/image-35.png)
 #### **3.10.6.3关闭Kafka集群**
 # 关闭集群
 cluster.sh stop
 
 # 查看进程
 xcall jps
-
-
+![alt text](assets/image-33.png)
+![alt text](assets/image-34.png)
 ## **3.11 Kafka-Eagle监控**
 Kafka-Eagle框架可以监控Kafka集群的整体运行情况，在生产环境中经常使用。
 ### **3.11.1 MySQL环境准备**
@@ -3027,7 +3042,7 @@ flush privileges;
 EOF
 安装成功后，Mysql的root用户的密码被修改为000000，请连接mysql客户端后，确认root用户的密码插件为下图所示内容。
 select user,host,plugin from mysql.user;
-
+![alt text](assets/image-32.png)
 如果插件与截图不同，请登录MySQL客户端后重试下列SQL，否则无法远程登录
 update mysql.user set host='%' where user='root';
 alter user 'root'@'%' identified with mysql_native_password by '000000';
@@ -3037,11 +3052,13 @@ exit;
 **# 退出后，请重新登录后进行确认**
 ### **3.11.2 修改Kafka集群配置**
 修改/opt/module/kafka/bin/kafka-server-start.sh脚本文件中的内容
+```
 if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then
 export KAFKA_HEAP_OPTS="-server -Xms2G -Xmx2G -XX:PermSize=128m -XX:+UseG1GC -XX:MaxGCPauseMillis=200 -XX:ParallelGCThreads=8 -XX:ConcGCThreads=5 -XX:InitiatingHeapOccupancyPercent=70"
 export JMX_PORT="9999"
 #export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"
 fi
+```
 **注意：每个节点都要进行修改。**
 # 分发修改后得文件
 xsync /opt/module/kafka/bin/kafka-server-start.sh
@@ -3185,9 +3202,11 @@ cluster3.efak.ssl.cgroup.topics=
 #创建脚本文件
 vim /etc/profile.d/my_env.sh
 # 增加如下内容
+```
 # kafkaEFAK
 export KE_HOME=/opt/module/efak
 export PATH=$PATH:$KE_HOME/bin
+```
 # 刷新环境变量
 source /etc/profile.d/my_env.sh
 #### **3.11.3.4启动集群**
@@ -3201,17 +3220,17 @@ cd /opt/module/efak
 bin/ke.sh start
 # 停止efak
 bin/ke.sh stop
-
+![alt text](assets/image-31.png)
 #### **3.11.3.5登录页面查看监控数据**
 [http://kafka-broker1:8048/](http://kafka-broker1:8048/)
-
+![alt text](assets/image-30.png)
 账号为admin,密码为123456
-
-
-
+![alt text](assets/image-29.png)
+![alt text](assets/image-28.png)
+![alt text](assets/image-27.png)
 ## **3.12 KRaft模式**
 Kafka作为一种高吞吐量的分布式发布订阅消息系统，在消息应用中广泛使用，尤其在需要实时数据处理和应用程序活动跟踪的场景，kafka已成为首选服务。在Kafka2.8之前，Kafka强依赖zookeeper来负责集群元数据的管理，这也导致当Zookeeper集群性能发生抖动时，Kafka的性能也会收到很大的影响。2.8版本之后，kafka开始提供KRaft（Kafka Raft，依赖Java 8+ ）模式，开始去除对zookeeper的依赖。最新的3.6.1版本中，Kafka依然兼容zookeeper Controller，但Kafka Raft元数据模式，已经可以在不依赖zookeeper的情况下独立启动Kafka了。官方预计会在Kafka 4.0中移除ZooKeeper，让我们拭目以待。
-
+![alt text](assets/image-26.png)
 ### **3.12.1 kraft模式的优势**
 Ø 更简单的部署和管理——通过只安装和管理一个应用程序，无需安装更多的软件，简化软件的安装部署。这也使得在边缘的小型设备中更容易利用 Kafka。
 Ø 提高可扩展性——KRaft 的恢复时间比 ZooKeeper 快一个数量级。这使我们能够有效地扩展到单个集群中的数百万个分区。ZooKeeper 的有效限制是数万
@@ -3303,7 +3322,7 @@ kfk2.sh stop
 ## **4.1 大数据应用场景**
 ### **4.1.1 Flume集成**
 Flume也是日志采集器，类似于ELK中的LogStash软件功能。早期设计的功能就是通过Flume采集过来数据，然后将数据写入HDFS分布式文件存储系统，不过，随着功能的扩展，现在也可以把采集的数据写入到kafka当中，作为实时数据使用。
-
+![alt text](assets/image-25.png)
 #### **4.1.1.1安装Flume**
 ##### **4.1.1.1.1安装地址**
 Flume官网地址：http://flume.apache.org/
@@ -3333,6 +3352,7 @@ cd /opt/module/flume/job
 # 创建文件
 vim file_to_kafka.conf
 3) 增加文件内容
+```
 # 定义组件
 a1.sources = r1
 a1.channels = c1
@@ -3353,9 +3373,10 @@ a1.channels.c1.parseAsFlumeEvent = false
 
 # 组装
 a1.sources.r1.channels = c1
+```
 ### **4.1.1.3 集成测试**
 ##### **4.1.1.3.1 启动Zookeeper、Kafka集群**
-
+![alt text](assets/image-23.png)
 ##### **4.1.1.3.2 执行flume操作采集数据到Kafka**
 # 进入flume
 cd /opt/module/flume
@@ -3363,7 +3384,7 @@ cd /opt/module/flume
 bin/flume-ng agent -n a1 -c conf/ -f job/file_to_kafka.conf
 ### **4.1.2 SparkStreaming集成**
 Spark是分布式计算引擎，是一款非常强大的离线分布式计算框架，其中的SparkStreaming模块用于准实时数据处理，其中就可以将Kafka作为数据源进行处理。
-
+![alt text](assets/image-24.png)
 #### **4.1.2.1 编写功能代码**
 ##### **4.1.2.1.1 修改pom.xml文件，增加依赖**
 ```
@@ -3449,12 +3470,12 @@ ssc.awaitTermination();
 ```
 #### **4.1.2.2 集成测试**
 ##### **4.1.2.2.1 启动Zookeeper、Kafka集群**
-
+![alt text](assets/image-20.png)
 ##### **4.1.2.2.2 执行Spark程序**
-
+![alt text](assets/image-21.png)
 ### **4.1.3 Flink集成**
 Flink是分布式计算引擎，是一款非常强大的实时分布式计算框架，可以将Kafka作为数据源进行处理。
-
+![alt text](assets/image-22.png)
 #### **4.1.3.1 编写功能代码**
 ##### **4.1.3.1.1 修改pom.xml文件，增加相关依赖**
 ```
@@ -3513,9 +3534,9 @@ env.execute();
 ```
 #### **4.1.3.2 集成测试**
 ##### **4.1.3.2.1 启动Zookeeper、Kafka集群**
-
+![alt text](assets/image-18.png)
 ##### **4.1.3.2.2 执行Flink程序**
-
+![alt text](assets/image-19.png)
 ## **4.2 Java应用场景**
 ### **4.2.1 SpringBoot集成**
 Spring Boot帮助您创建可以运行的、独立的、生产级的基于Spring的应用程序。您可以使用Spring Boot创建Java应用程序，这些应用程序可以通过使用java-jar或更传统的war部署启动。
@@ -3670,7 +3691,9 @@ public class SpringBootKafkaConfig {
 public static final String TOPIC_TEST = "test";
 public static final String GROUP_ID = "test";
 }
+```
 ##### **4.2.1.2.2 创建生产者控制器：KafkaProducerController**
+```
 package com.atguigu.springkafka.controller;
 
 import com.atguigu.springkafka.config.SpringBootKafkaConfig;
@@ -3707,7 +3730,9 @@ e.getMessage();
 return "success";
 }
 }
+```
 ##### **4.2.1.2.3 创建消费者：KafkaDataConsumer**
+```
 package com.atguigu.springkafka.component;
 
 import cn.hutool.json.JSONObject;
@@ -3738,15 +3763,15 @@ System.out.println(SpringBootKafkaConfig.GROUP_ID + " 消费了： Topic:" + top
 ```
 #### **4.2.1.3 集成测试**
 ##### **4.2.1.3.1 启动ZooKeeper**
-
+![alt text](assets/image-14.png)
 ##### **4.2.1.3.2 启动Kafka**
 ##### **4.2.1.3.3 启动应用程序**
-
+![alt text](assets/image-15.png)
 ##### **4.2.1.3.4 生产数据测试**
 可以采用任何的工具进行测试，我们这里采用postman发送POST数据
-
+![alt text](assets/image-16.png)
 消费者消费数据
-
+![alt text](assets/image-17.png)
 **
 
 # **第5章  Kafka优化**
@@ -3857,4 +3882,3 @@ Kafka提供自动保存偏移量的功能的同时，也提供了手动保存偏
 ## **6.11 Kafka数据如何保证有序？**
 这里的有序我们要考虑的点比较多，但是总结起来就是生产有序，存储有序，消费有序。
 所谓的生产有序就是生产者对象需要给数据增加序列号用于标记数据的顺序，然后再服务端进行缓存数据的比对，一旦发现数据是乱序的，那么就需要让生产者客户端进行数据的排序，然后重新发送数据，保证数据的有序。不过这里的缓存数据的比对，最多只能有5条数据比对，所以生产者客户端需要配置参数，将在途请求缓冲区的请求队列数据设置为5，否则数据依然可能乱序。因为服务端的缓存数据是以分区为单位的，所以这就要求生产者客户端需要将数据发送到一个分区中，如果数据发送到多个分区，是无法保证顺序的。这就是生产有序的意思。那存储有序指的是kafka的服务端获取数据后会将数据顺序写入日志文件，这样就保证了存储有序，当然也只能是保证一个分区的数据有序。接下来就是消费有序。所谓的消费有序其实就是kafka在存储数据时会给数据增加一个访问的偏移量值，那消费者只能按照偏移量的方式顺序访问，并且一个分区的数据只能被消费者组中的一个消费者消费，那么按照偏移量方式的读取就不会出现乱序的情况。所以综合以上的描述。Kafka就能够实现数据的有序。
-
