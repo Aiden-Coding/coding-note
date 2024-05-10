@@ -1,3 +1,6 @@
+---
+title: 基础
+---
 @Configuration把一个类作为一个IoC容器，它的某个方法头上如果注册了@Bean，就会作为这个Spring容器中的Bean。
 
 @Scope注解 作用域

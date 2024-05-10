@@ -1,3 +1,6 @@
+---
+title: 基础
+---
 Spring AOP中的动态代理主要有两种方式，JDK动态代理和CGLIB动态代理。
 
 JDK动态代理通过反射来接收被代理的类，并且要求被代理的类必须实现一个接口。JDK动态代理的核心是InvocationHandler接口和Proxy类。
