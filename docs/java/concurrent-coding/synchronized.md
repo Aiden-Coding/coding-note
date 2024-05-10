@@ -1,3 +1,6 @@
+---
+title: synchronized
+---
 在[再有人问你Java内存模型是什么，就把这篇文章发给他。][1]中我们曾经介绍过，Java语言为了解决并发编程中存在的原子性、可见性和有序性问题，提供了一系列和并发处理相关的关键字，比如`synchronized`、`volatile`、`final`、`concurren包`等。
 
 在《深入理解Java虚拟机》中，有这样一段话：

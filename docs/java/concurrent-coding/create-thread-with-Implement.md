@@ -1,4 +1,6 @@
-
+---
+title: create-thread-with-Implement
+---
 
     public class MultiThreads {
         public static void main(String[] args) throws InterruptedException {

@@ -1,3 +1,6 @@
+---
+title: create-thread-with-thead-pool
+---
 Java中提供了对线程池的支持，有很多种方式。Jdk提供给外部的接口也很简单。直接调用ThreadPoolExecutor构造一个就可以了：
 
     public class MultiThreads {

@@ -1,3 +1,6 @@
+---
+title: Callable和Future
+---
 自从Java 1.5开始，提供了Callable和Future，通过它们可以在任务执行完毕之后得到任务执行结果。
 
     public class MultiThreads {
