@@ -70,6 +70,7 @@ export default defineUserConfig({
             "jvm/编译JDK",
             "jvm/总结",
           ],
+          collapsible: true, // 默认展开，true 为折叠
         },
         {
           text: "java-basic",
@@ -211,14 +212,15 @@ export default defineUserConfig({
             "java-basic/Wildcard-Character.md",
             "java-basic/YYYY-vs-yyyy.md",
           ],
+          collapsible: true, // 默认展开，true 为折叠
         },
 
         {
           text: "object-oriented",
           children: [
             "object-oriented/multiple-inheritance.md",
-            "object-oriented/characteristics.md",
-            "object-oriented/constructor.md",
+            "/java/object-oriented/characteristics.md",
+            "/docs/java/object-oriented/constructor.md",
             "object-oriented/extends-implement.md",
             "object-oriented/inheritance-composition.md",
             "object-oriented/java-pass-by.md",
@@ -232,6 +234,7 @@ export default defineUserConfig({
             "object-oriented/variable.md",
             "object-oriented/why-pass-by-reference.md",
           ],
+          collapsible: true, // 默认展开，true 为折叠
         },
 
         {
@@ -258,6 +261,7 @@ export default defineUserConfig({
             "concurrent-coding/volatile.md",
             "concurrent-coding/why-not-executors.md",
           ],
+          collapsible: true, // 默认展开，true 为折叠
         },
       ],
 
@@ -279,6 +283,7 @@ export default defineUserConfig({
             "面渣逆袭/计算机网络",
             "面渣逆袭/微服务",
           ],
+          collapsible: true, // 默认展开，true 为折叠
         },
       ],
     },
