@@ -1,0 +1,5 @@
+import{_ as e,o as t,c as a,e as i}from"./app-BihAYnmf.js";const s={},n=i(`<p>Java 1.7 之前 switch 参数可用类型为 short、byte、int、char，枚举类型之所以能使用其实是编译器层面实现的</p><p>编译器会将枚举 switch 转换为类似</p><div class="language-text line-numbers-mode" data-ext="text" data-title="text"><pre class="language-text"><code>switch(s.ordinal()) { 
+    case Status.START.ordinal() 
+}
+ 
+</code></pre><div class="line-numbers" aria-hidden="true"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p>形式，所以实质还是 int 参数类型，感兴趣的可以自己写个使用枚举的 switch 代码然后通过 javap -v 去看下字节码就明白了。</p>`,4),c=[n];function d(o,r){return t(),a("div",null,c)}const m=e(s,[["render",d],["__file","enum-switch.html.vue"]]),v=JSON.parse('{"path":"/docs/java/java-basic/enum-switch.html","title":"","lang":"en-US","frontmatter":{},"headers":[],"git":{"createdTime":1715384499000,"updatedTime":1715384499000,"contributors":[{"name":"dong","email":"dwx_job@163.com","commits":1}]},"filePathRelative":"docs/java/java-basic/enum-switch.md"}');export{m as comp,v as data};
